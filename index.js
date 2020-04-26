@@ -19,7 +19,8 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 Create another variable called `periods` and give it the value of years*12.
 */
 
-
+const monthlyInterestRate = interest / 12;
+const periods = years * 12;
 
 
 // 🏡 Task 2: Harder Math
