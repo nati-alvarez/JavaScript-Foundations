@@ -44,22 +44,19 @@ console.log(monthlyRate.toFixed(2));
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
-function mortgageCalculator(){
-    const principal = 200000;
-    const interest = 0.05;
-    const years = 30;
+function mortgageCalculator(P, I, N){
     const name = "Natividad Alvarez";
     
-    const monthlyInterestRate = interest / 12;
-    const periods = years * 12;
+    const monthlyInterestRate = I / 12;
+    const periods = N * 12;
 
     const numerator = monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods);
     const denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
-    const monthlyRate = principal * (numerator/denominator);
+    const monthlyRate = P * (numerator/denominator);
     return `${name}, your monthly rate is ${monthlyRate.toFixed(2)}`
 }
 
-console.log(mortgageCalculator());
+console.log(mortgageCalculator(200000, 0.05, 30));
 
 
 // 🏡 Task 4: Arguments and Parameters
