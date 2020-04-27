@@ -59,7 +59,7 @@ function mortgageCalculator(P, I, N, creditScore){
     const numerator = monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods);
     const denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
     const monthlyRate = P * (numerator/denominator);
-    return `${name}, your monthly rate is ${monthlyRate.toFixed(2)}`
+    return `${name}, your monthly rate is $${monthlyRate.toFixed(2)}`;
 }
 
 console.log(mortgageCalculator(200000, 0.05, 30, 750));
@@ -101,7 +101,24 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+function variableInterestRate(P, I, N) {
+    const name = "Natividad Alvarez";
 
+    var interestAddOn = ((I* 50) / 100);
+
+    for(let i = I - interestAddOn; i <= I + interestAddOn; i += .005){
+        const monthlyInterestRate = i / 12;
+        const periods = N * 12;
+
+        const numerator = monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods);
+        const denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
+        const monthlyRate = P * (numerator/denominator);
+        console.log(`${name}, your monthly rate is $${Math.round(monthlyRate)}`)
+    }
+
+}
+
+variableInterestRate(200000, 0.04, 30);
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
