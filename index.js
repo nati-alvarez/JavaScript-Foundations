@@ -120,6 +120,23 @@ function variableInterestRate(P, I, N) {
 
 variableInterestRate(200000, 0.04, 30);
 
+function mortgageCalculatorPrompt(){
+    const principal = window.prompt("Enter irincipal amount: ");
+    const interest = window.prompt("Enter interest rate: ");
+    const years = window.prompt("Enter number of years: ");
+    const name = window.prompt("Enter your name: ");
+
+    const monthlyInterestRate = interest / 12;
+    const periods = years * 12;
+
+    const numerator = monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods);
+    const denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
+    const monthlyRate = principal * (numerator/denominator);
+    return `${name}, your monthly rate is $${monthlyRate.toFixed(2)}`;
+}
+
+console.log(mortgageCalculatorPrompt());
+
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
